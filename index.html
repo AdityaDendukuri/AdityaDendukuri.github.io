@@ -14,5 +14,54 @@ use-site-title: true
 </p>
 
 
+    
+
+<p class="Section">What am I currently working on?</p>
+
+<p class="BodyText">
+I am currently working on studying complex systems that can be defined as graphs. In particular, I am interested in 
+using spectral graph theory to come up with an invariant proxy "fingerprint" that can be used to represent arbitrary graphical systems for machine learning analysis. The two systems I am working with are (i) nucleus
+formation in the ising lattice crystal and (ii) thermodynamically small molecular systems. 
+</p>
+
+
+    <p class="SubSection">Monte Carlo simulations of nucleuation phenomena in the Ising Lattice model</p>
+        <p class="BodyText">
+Nucleation is the the initial phase in formation of a new thermodynamics phase, such as formation of a water droplet
+in steam. We are performing a data-driven study to detect order parameters that can used to describe the nucleation process.
+Classical nucleation theory assumes that the nucleus size is the only order parameter, but there are other proposed variables
+such as surface area. We are currently composing simulation code to generate datasets. Below are samples of some simulation experiments.
+        </p>
+<iframe width="250" height="250" src='//gifs.com/embed/classical-ising-lattice-at-low-temperature-k8mAnx' frameborder='0' scrolling='no' width='300px' height='300px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
+<iframe width="250" height="250" src='//gifs.com/embed/915k58' frameborder='0' scrolling='no' width='300px' height='300px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
+<iframe width="250" height="250" src='//gifs.com/embed/YW1Oy9' frameborder='0' scrolling='no' width='300px' height='300px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
+
+<p class="BodyText">
+The first video is the standard Monte Carlo simulation of the Ising spin lattice at a low temperature. The second video 
+is the same lattice at the critical temperature. The third video is a simulation of nucleation and growth modelling phase change. Once we have enough data, we will use the techniques we devloped to detect subspaces in the simulation data and 
+detect order parameters via screening of these subspaces.   
+</p>
+
+<p class="SubSection"> Nonlinear Dimensionality Reduction for the Thermodynamics of Small Clusters of Particles </p>
+
+<figure>
+    <img src="img.png" width="650" height="560" alt="Italian Trulli" > </img>
+</figure>
+
+    
+
+<p class ="BodyText">
+    Thermodynamically small systems, in contrast to bulk systems, are extremely small discrete systems such as handful of <i>N</i> interacting atoms.
+    These systems get so small that classical state variables such as volume or surface become ambiguous.  
+   The model of focus in this study is the Lennard Jones (LJ) Molecule, which is a popular model used to replicate and study various molecular phenomenon. Past literature establishes the usual methodology to study such systems as generating data sets via molecular dynamics/ Monte Carlo simulations and screening the simulation data to study the behavior of the system. However, we need to keep track of each cartesian coordinate of the constituent atoms to have the complete information about the state of a cluster – making this system very high dimensional.  This issue hinders our ability to visualize or study the thermodynamics of this system productively. The work presented in this thesis is split into two stages – (i) dimensionality reduction of simulation data into reduced subspaces with various cluster similarity metrics and (ii) screening of the generated subspaces to detect order parameters. This project uses computational techniques from spectral graph theory, statistics and machine learning. The dimensionality reduction techniques used were diffusion maps and extracting latent subspaces from neural network architectures. Dr. David Ford from the Ralph E Martin Department of Chemical Engineering supervised this project. 
+</p>
+
+<p class ="BodyText">
+For diffusion maps to work effectively, a structural similarity metric needs to be defined that captures key differences in local connectivity of the cluster. The previous metrics used are Hausdorff and Mayer f-bond distance. One of the most effective idea from previous literature is to treat these clusters as computational graphs and use the distance between the adjacency matrices defining these graphs as a similarity metric. However, two structurally congruent molecules may not be aligned based on particle indexing, which results in inaccuracies as adjacency matrices are not invariant to the permutation of indices. This is addressed by using permutation matrices to find the best index alignment between two clusters based on a metric called IsoRank. However, this approach scales up exponentially with number of particles and quickly becomes intractable for even slightly larger clusters. This project addresses this problem by using the Eigen-spectrum of the adjacency matrices to compute the distance (instead of the proposed alignment step), as the eigenvalues are invariant to permutation of indices and run in cubic time. This project also uses neural networks by training them to predict the energy values and extracting the subspaces from the hidden layers. Both of these results indicated radius of gyration and number of bonds as good order parameters. 
+In conclusion this is an interdisciplinary project with applications to chemical engineering and nanotechnology. The main novelty proposed in this project is the use of spectral information of the graphical interpretation of molecular clusters which is backed with results that demonstrate the improvement in both in terms of qualitative output and efficiency. 
+
+    </p>
+    
+    
 
 
